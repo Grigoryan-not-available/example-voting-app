@@ -18,7 +18,7 @@ on:
       - '.github/workflows/call-docker-build-worker.yaml'
   schedule:
     # re-run monthly to keep image fresh with upstream base images
-    - cron: '0 12 15 * *'
+    - cron: '0 0 1 * *'
 
 jobs:
   call-docker-build:

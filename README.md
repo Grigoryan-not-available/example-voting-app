@@ -41,7 +41,7 @@ docker stack deploy --compose-file docker-stack.yml vote
 Run the app in Kubernetes
 -------------------------
 
-The folder `k8s-manifest` contains the resources of the Voting App's services.
+The folder `k8s-specifications` contains the resources of the Voting App's services.
 
 First create the vote namespace
 
@@ -52,7 +52,7 @@ kubectl create namespace vote
 Run the following command to create the deployments and services objects:
 
 ```shell
-$ kubectl apply -f k8s-manifests/
+$ kubectl apply -f k8s-specifications/
 deployment "db" created
 service "db" created
 deployment "redis" created

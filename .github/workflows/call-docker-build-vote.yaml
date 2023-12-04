@@ -18,7 +18,7 @@ on:
       - '.github/workflows/call-docker-build-vote.yaml'
   schedule:
     # re-run montly to keep image fesh with upstream base images
-    - cron: '0 12 15 * *'
+    - cron: '0 0 1 * *'
 
 jobs:
   call-docker-build:
