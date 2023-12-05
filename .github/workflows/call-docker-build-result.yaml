@@ -28,3 +28,4 @@ jobs:
       dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
     with:
       dockerfile: ./result/Dockerfile
+
