@@ -1,6 +1,11 @@
 name: Reusable Docker Build and Push
 on:
   workflow_call:
+    inputs:
+      dockerfile:
+        description: Path to Dockerfile
+        type: string
+        required: true
     secrets:
       dockerhub-username:
         description: Docker Hub username
@@ -40,7 +45,8 @@ jobs:
       - name: Docker build
         uses: docker/build-push-action@v5.1.0
         with:
-          push: ${{ github.event_name != 'pull_request' }}
+          file: ${{ inputs.dockerfile }}
+          push: true
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           cache-from: type=gha
