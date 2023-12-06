@@ -22,6 +22,8 @@ on:
 
 jobs:
   call-docker-build:
+    permissions:
+      pull-requests: write
     uses: ./.github/workflows/reusable-docker-build.yaml
     secrets:
       dockerhub-username: ${{ secrets.DOCKER_USERNAME }}

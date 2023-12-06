@@ -65,3 +65,20 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64,linux/arm64,linux/arm/v7
+
+      - name: Create or Update Comment
+        uses: peter-evans/create-or-update-comment@v3.1.0
+        if: github.event_name == 'pull_request'
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Docker image tag(s) pushed:
+            ```text
+            ${{ steps.metadata.outputs.tags }}
+            ```
+
+            Labels added to images:
+            ```text
+            ${{ steps.metadata.outputs.labels }}
+            ```
+      
