@@ -81,4 +81,3 @@ jobs:
             ```text
             ${{ steps.metadata.outputs.labels }}
             ```
-
