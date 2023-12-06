@@ -9,6 +9,7 @@ on:
     paths:
       - 'worker/**'
       - '.github/workflows/call-docker-build-worker.yaml'
+      - '.github/workflows/reusable-docker-build.yaml'
   pull_request:
     branches:
       - 'main'
@@ -16,6 +17,7 @@ on:
     paths:
       - 'worker/**'
       - '.github/workflows/call-docker-build-worker.yaml'
+      - '.github/workflows/reusable-docker-build.yaml'
   schedule:
     # re-run monthly to keep image fresh with upstream base images
     - cron: '0 0 1 * *'
