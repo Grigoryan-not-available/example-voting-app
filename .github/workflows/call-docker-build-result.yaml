@@ -31,3 +31,4 @@ jobs:
       image-names: |
         hryshchenkoihor/${{github.repository}}/results
         ghcr.io/${{github.repository}}/results
+
