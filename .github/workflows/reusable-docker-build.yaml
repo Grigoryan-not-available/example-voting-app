@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
+
       - name: Docker Metadata action
         id: metadata
         uses: docker/metadata-action@v5.3.0
@@ -35,6 +36,9 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
 
+      - name: Docker Setup QEMU
+        uses: docker/setup-qemu-action@v3.0.0
+            
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -60,3 +64,4 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64,linux/arm/v7

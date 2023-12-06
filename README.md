@@ -2,9 +2,9 @@ Example Voting App
 =========
 
 [![Lint Code Base](https://github.com/BretFisher/example-voting-app/actions/workflows/call-super-linter.yaml/badge.svg)](https://github.com/BretFisher/example-voting-app/actions/workflows/call-super-linter.yaml)
-[![Build Result](https://github.com/BretFisher/example-voting-app/actions/workflows/call-docker-build-result.yaml/badge.svg)](https://github.com/BretFisher/example-voting-app/actions/workflows/call-docker-build-result.yaml)
-[![Build Vote](https://github.com/BretFisher/example-voting-app/actions/workflows/call-docker-build-vote.yaml/badge.svg)](https://github.com/BretFisher/example-voting-app/actions/workflows/call-docker-build-vote.yaml)
-[![Build Worker](https://github.com/BretFisher/example-voting-app/actions/workflows/call-docker-build-worker.yaml/badge.svg)](https://github.com/BretFisher/example-voting-app/actions/workflows/call-docker-build-worker.yaml)
+![Build Result](https://github.com/Grigoryan-not-available/example-voting-app/actions/workflows/call-docker-build-result.yaml/badge.svg)
+![Build Vote](https://github.com/Grigoryan-not-available/example-voting-app/actions/workflows/call-docker-build-vote.yaml/badge.svg)
+![Build Worker](https://github.com/Grigoryan-not-available/example-voting-app/actions/workflows/call-docker-build-worker.yaml/badge.svg)
 
 A simple distributed application running across multiple Docker containers.
 
