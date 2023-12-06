@@ -9,6 +9,7 @@ on:
     paths:
       - 'result/**'
       - '.github/workflows/call-docker-build-result.yaml'
+      - '.github/workflows/reusable-docker-build.yaml'
   pull_request:
     branches:
       - 'main'
@@ -16,6 +17,7 @@ on:
     paths:
       - 'result/**'
       - '.github/workflows/call-docker-build-result.yaml'
+      - '.github/workflows/reusable-docker-build.yaml'
   schedule:
     # re-run montly to keep image fesh with upstream base images
     - cron: '0 0 1 * *'
