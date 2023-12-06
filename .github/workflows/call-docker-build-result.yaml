@@ -25,6 +25,7 @@ on:
 jobs:
   call-docker-build:
     permissions:
+      packages: write
       pull-requests: write
     uses: ./.github/workflows/reusable-docker-build.yaml
     secrets:
