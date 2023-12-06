@@ -31,3 +31,4 @@ jobs:
       image-names: |
         hryshchenkoihor/example-voting-app-results
         ghcr.io/${{ github.repository }}-results
+
