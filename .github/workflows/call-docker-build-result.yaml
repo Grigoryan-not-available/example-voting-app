@@ -27,7 +27,7 @@ jobs:
       dockerhub-username: ${{ secrets.DOCKER_USERNAME }}
       dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
     with:
-      context: ./result
+      context: result
       image-names: |
         hryshchenkoihor/${{github.repository}}/results
         ghcr.io/${{github.repository}}/results
