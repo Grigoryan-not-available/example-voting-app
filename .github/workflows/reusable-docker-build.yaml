@@ -27,7 +27,7 @@ jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
     outputs:
-      ghcr-tag: ${{ steps.docker-tag.outputs.ghcr-tag }}
+      ghcr-tag: ${{ steps.ghcr-tag.outputs.ghcr-tag }}
     steps:
       - uses: actions/checkout@v4.1.1
 
