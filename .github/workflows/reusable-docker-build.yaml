@@ -21,6 +21,8 @@ on:
       tags:
         description: "Generated docker image:tag"
         value: ${{ jobs.build-and-push-docker-image.outputs.docker-tags }}
+      demo:
+        value: 'demo'
 
 jobs:
   build-and-push-docker-image:
@@ -36,6 +38,7 @@ jobs:
         with:
           images: ${{ inputs.image-names }}
           tags: |
+            type=sha
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}

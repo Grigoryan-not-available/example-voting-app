@@ -34,14 +34,17 @@ jobs:
     with:
       context: result
       image-names: |
-        hryshchenkoihor/example-voting-app-results
         ghcr.io/${{ github.repository }}-results
+        hryshchenkoihor/example-voting-app-results
 
   print-output:
     needs: call-docker-build
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ needs.call-docker-build.outputs.tags }}
+      - run: |
+          echo ${{ needs.call-docker-build.outputs.tags }}
+          echo ${{ needs.call-docker-build.outputs.demo }}
+
 
   # cve-scan:
   #   needs: call-docker-build

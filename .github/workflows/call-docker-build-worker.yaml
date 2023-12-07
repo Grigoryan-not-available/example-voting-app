@@ -34,5 +34,5 @@ jobs:
     with:
       context: worker
       image-names: |
-        hryshchenkoihor/example-voting-app-worker
-        ghcr.io/${{ github.repository }}-worker
+        ghcr.io/${{ github.repository }}-results
+        hryshchenkoihor/example-voting-app-results

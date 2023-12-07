@@ -34,5 +34,5 @@ jobs:
     with:
       context: vote
       image-names: |
-        hryshchenkoihor/example-voting-app-vote
-        ghcr.io/${{ github.repository }}-vote
+        ghcr.io/${{ github.repository }}-results
+        hryshchenkoihor/example-voting-app-results
