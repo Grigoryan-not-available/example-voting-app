@@ -46,7 +46,7 @@ jobs:
 
       - name: Return only one ghcr image:tag
         id: ghcr-tag
-        run: echo "ghcr-tag=$(grep -m 1 ghcr "${{ steps.metadata.outputs.tags }}")" >> "$GITHUB_OUTPUT"
+        run: echo "ghcr-tag=$(echo "${{ steps.metadata.outputs.tags }}" | grep -m 1 ghcr)" >> "$GITHUB_OUTPUT"
 
       - name: Docker Setup QEMU
         uses: docker/setup-qemu-action@v3.0.0
