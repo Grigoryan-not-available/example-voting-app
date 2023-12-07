@@ -18,16 +18,16 @@ on:
         description: Docker Hub token
         required: true
     outputs:
-      tags:
-        description: Generated ghcr/image:tag
-        value: ${{ jobs.build-and-push-docker-image.outputs.docker-tags }}
+      ghcr-tag:
+        description: Generated image:tag
+        value: ${{ jobs.build-and-push-docker-image.outputs.tag }}
 
 
 jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
     outputs:
-      docker-tags: ${{ toJson(steps.metadata.outputs.tags)[0] }}
+      tag: ${{ steps.docker-tag.outputs.docker-tag }}
     steps:
       - uses: actions/checkout@v4.1.1
 
@@ -43,6 +43,10 @@ jobs:
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
+
+      - name: Return only one image:tag
+        id: docker-tag
+        run: echo "docker-tag=$(head -n 1 ${{ steps.metadata.outputs.tags }})" >> "$GITHUB_OUTPUT"
 
       - name: Docker Setup QEMU
         uses: docker/setup-qemu-action@v3.0.0
