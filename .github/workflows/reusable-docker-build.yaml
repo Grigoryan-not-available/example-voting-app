@@ -20,7 +20,7 @@ on:
     outputs:
       docker-tag:
         description: Generated image:tag
-        value: ${{ jobs.build-and-push-docker-image.outputs.tag }}
+        value: ${{ jobs.build-and-push-docker-image.outputs.docker-tag }}
 
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
 
       - name: Return only one image:tag
         id: docker-tag
-        run: echo "docker-tag=$(echo ${{ steps.metadata.outputs.tags }} | head -n 1)" >> "$GITHUB_OUTPUT"
+        run: echo 'docker-tag=$(echo "${{ steps.metadata.outputs.tags }}" | head -n 1)' >> "$GITHUB_OUTPUT"
 
       - name: Docker Setup QEMU
         uses: docker/setup-qemu-action@v3.0.0
