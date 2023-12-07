@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ needs.call-docker-build.outputs.docker-tag }}
+          echo ${{ needs.call-docker-build.outputs.ghcr-tag }}
 
   # cve-scan:
   #   needs: call-docker-build
