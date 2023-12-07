@@ -27,7 +27,7 @@ jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
     outputs:
-      docker-tags: ${{ fromJson(steps.metadata.outputs.tags)[0] }}
+      docker-tags: ${{ toJson(steps.metadata.outputs.tags)[0] }}
     steps:
       - uses: actions/checkout@v4.1.1
 
