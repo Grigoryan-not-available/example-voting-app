@@ -44,6 +44,7 @@ jobs:
       - run: |
           echo ${{ needs.call-docker-build.outputs.tags }}
           echo ${{ needs.call-docker-build.outputs.demo }}
+          echo ${{ needs.call-docker-build.outputs.json }}
 
 
   # cve-scan:

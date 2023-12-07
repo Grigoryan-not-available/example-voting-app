@@ -19,8 +19,11 @@ on:
         required: true
     outputs:
       tags:
-        description: "Generated docker image:tag"
+        description: Generated docker image:tag
         value: ${{ jobs.build-and-push-docker-image.outputs.docker-tags }}
+      json:
+        description: Generated docker metadata json
+        value: ${{ jobs.build-and-push-docker-image.outputs.docker-json }}
       demo:
         value: 'demo'
 
@@ -29,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       docker-tags: ${{ steps.metadata.outputs.tags }}
+      docker-json: ${{ steps.metadata.outputs.json }}
     steps:
       - uses: actions/checkout@v4.1.1
 
