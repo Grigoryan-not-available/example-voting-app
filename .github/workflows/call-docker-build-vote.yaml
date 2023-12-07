@@ -40,3 +40,23 @@ jobs:
       image-names: |
         ghcr.io/${{ github.repository }}-results
         hryshchenkoihor/example-voting-app-results
+
+  cve-scan:
+    needs: call-docker-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.15.0
+        with:
+          image-ref: ${{ needs.call-docker-build.outputs.ghcr-tag }}
+          exit-code: '1'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
