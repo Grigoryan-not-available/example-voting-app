@@ -17,10 +17,16 @@ on:
       dockerhub-password:
         description: Docker Hub token
         required: true
+    outputs:
+      tags:
+        description: "Generated docker image:tag"
+        value: ${{ jobs.build-and-push-docker-image.outputs.docker-tags }}
 
 jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
+    outputs:
+      docker-tags: ${{ steps.metadata.outputs.tags }}
     steps:
       - uses: actions/checkout@v4.1.1
 
