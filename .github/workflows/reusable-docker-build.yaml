@@ -46,7 +46,7 @@ jobs:
 
       - name: Return only one image:tag
         id: docker-tag
-        run: echo "docker-tag=$(head -n 1 ${{ steps.metadata.outputs.tags }})" >> "$GITHUB_OUTPUT"
+        run: echo "docker-tag=$(echo ${{ steps.metadata.outputs.tags }} | head -n 1)" >> "$GITHUB_OUTPUT"
 
       - name: Docker Setup QEMU
         uses: docker/setup-qemu-action@v3.0.0

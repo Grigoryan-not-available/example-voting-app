@@ -1,3 +1,0 @@
-ghcr/asd/asd/asd/asd
-dockerhub/asda/sda/sda/sd
-ghcr/asd/asd/as/d
