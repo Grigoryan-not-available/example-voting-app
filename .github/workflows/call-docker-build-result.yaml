@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ needs.call-docker-build.outputs.tag }}
+          echo ${{ needs.call-docker-build.outputs.docker-tag }}
 
   # cve-scan:
   #   needs: call-docker-build

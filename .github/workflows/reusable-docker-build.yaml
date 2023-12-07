@@ -18,7 +18,7 @@ on:
         description: Docker Hub token
         required: true
     outputs:
-      ghcr-tag:
+      docker-tag:
         description: Generated image:tag
         value: ${{ jobs.build-and-push-docker-image.outputs.tag }}
 
@@ -27,7 +27,7 @@ jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
     outputs:
-      tag: ${{ steps.docker-tag.outputs.docker-tag }}
+      docker-tag: ${{ steps.docker-tag.outputs.docker-tag }}
     steps:
       - uses: actions/checkout@v4.1.1
 
