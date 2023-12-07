@@ -25,7 +25,7 @@ on:
         description: Generated docker metadata json
         value: ${{ jobs.build-and-push-docker-image.outputs.docker-json }}
       demo:
-        value: 'demo'
+        value: ${{ jobs.build-and-push-docker-image.outputs.demo-test }}
 
 jobs:
   build-and-push-docker-image:
@@ -33,6 +33,7 @@ jobs:
     outputs:
       docker-tags: ${{ steps.metadata.outputs.tags }}
       docker-json: ${{ steps.metadata.outputs.json }}
+      demo-test: 'demo-test' 
     steps:
       - uses: actions/checkout@v4.1.1
 
