@@ -70,4 +70,5 @@ jobs:
           docker run --rm -d --name unit-test ${{ needs.call-docker-build.outputs.ghcr-tag }}
           ls
           docker ps -a
+          which curl
           curl -s localhost
