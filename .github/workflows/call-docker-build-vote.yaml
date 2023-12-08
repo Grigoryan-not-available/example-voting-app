@@ -64,11 +64,7 @@ jobs:
   unit-test:
     needs: call-docker-build
     runs-on: ubuntu-latest
+    container: ${{ needs.call-docker-build.outputs.ghcr-tag }}
     steps:
       - name: Run unit test
-        run: |
-          docker run --rm -d --name unit-test ${{ needs.call-docker-build.outputs.ghcr-tag }}
-          ls
-          docker ps -a
-          which curl
-          docker exec unit-test curl -s localhost
+        run: curl -s localhost
