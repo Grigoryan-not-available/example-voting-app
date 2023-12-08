@@ -38,8 +38,8 @@ jobs:
     with:
       context: worker
       image-names: |
-        ghcr.io/${{ github.repository }}-results
-        hryshchenkoihor/example-voting-app-results
+        ghcr.io/${{ github.repository }}-worker
+        hryshchenkoihor/example-voting-app-worker
 
   cve-scan:
     needs: call-docker-build

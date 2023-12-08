@@ -38,8 +38,8 @@ jobs:
     with:
       context: vote
       image-names: |
-        ghcr.io/${{ github.repository }}-results
-        hryshchenkoihor/example-voting-app-results
+        ghcr.io/${{ github.repository }}-vote
+        hryshchenkoihor/example-voting-app-vote
 
   cve-scan:
     needs: call-docker-build
@@ -68,7 +68,4 @@ jobs:
       - name: Run unit test
         run: |
           docker run --rm -d --name unit-test ${{ needs.call-docker-build.outputs.ghcr-tag }}
-          ls
-          docker ps -a
-          which curl
-          curl -s localhost
+          docker exec unit-test curl -s localhost
