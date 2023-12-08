@@ -67,4 +67,6 @@ jobs:
     container: ${{ needs.call-docker-build.outputs.ghcr-tag }}
     steps:
       - name: Run unit test
-        run: curl -s localhost
+        run: |
+          (gunicorn app:app -b 0.0.0.0:80 --log-file - --access-logfile - --workers 4 --keep-alive 0 &)
+          curl -s localhost
