@@ -60,3 +60,12 @@ jobs:
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
+
+  unit-test:
+    needs: call-docker-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run unit test
+        run: |
+          docker run --rm -d --name unit-test ${{ needs.call-docker-build.outputs.ghcr-tag }}
+          docker exec unit-test curl -s localhost
