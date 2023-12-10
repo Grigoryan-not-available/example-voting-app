@@ -72,3 +72,15 @@ jobs:
           (gunicorn app:app -b 0.0.0.0:80 --log-file - --access-logfile - --workers 4 --keep-alive 0 &)
           sleep 10
           curl -s localhost
+
+  integration-test:
+    needs: call-docker-build
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4.1.1
+
+      - name: Spin up app stack and add data
+        run: docker compose -f docker-compose.yml up --exit-code-from seed

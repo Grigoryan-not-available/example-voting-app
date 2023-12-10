@@ -76,6 +76,9 @@ jobs:
   integration-test:
     needs: call-docker-build
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4.1.1
 
