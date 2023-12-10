@@ -77,6 +77,8 @@ jobs:
     needs: call-docker-build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4.1.1
+
       - name: Spin up app stack
         run: docker compose -f docker-compose.yml up
 
