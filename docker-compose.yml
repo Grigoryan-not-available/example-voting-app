@@ -70,6 +70,16 @@ services:
     networks:
       - back-tier
 
+  seed:
+    build: ./seed-data
+    depends_on:
+      - vote
+      - worker
+      - result
+    networks:
+      - front-tier
+    restart: "no"
+
 volumes:
   db-data:
 

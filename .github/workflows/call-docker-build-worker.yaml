@@ -79,8 +79,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
 
-      - name: Spin up app stack
-        run: docker compose -f docker-compose.yml up
-
-      - name: Add data to app
-        run: docker compose -f docker-compose.seed.yml up
+      - name: Spin up app stack and add data
+        run: docker compose -f docker-compose.yml up --exit-code-from seed
