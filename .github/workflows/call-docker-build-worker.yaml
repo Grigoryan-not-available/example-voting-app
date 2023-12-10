@@ -72,3 +72,13 @@ jobs:
           (dotnet Worker.dll &)
           sleep 10
           ls -la
+
+  integration-test:
+    needs: call-docker-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Spin up app stack
+        run: docker compose -f docker-compose.yml up
+
+      - name: Add data to app
+        run: docker compose -f docker-compose.seed.yml up
